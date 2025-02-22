@@ -5,7 +5,7 @@ interface Celebrity {
   image: string;
 }
 
-const CelebButtonGrid = () => {
+const CelebButtonGrid = ({onSelectCeleb}) => {
   const [celebrities, setCelebrities] = useState<Celebrity[]>([]);
 
   useEffect(() => {
@@ -19,6 +19,12 @@ const CelebButtonGrid = () => {
   }, []);
 
   return (
+    <div>
+        {/* Subtitle */}
+        <p style={{ textAlign: "center", fontSize: "18px", marginTop: "10px", fontWeight: "bold" }}>
+                Select a celebrity below to motivate you:
+        </p>
+    
     <div 
       style={{ 
         display: "flex",
@@ -26,6 +32,7 @@ const CelebButtonGrid = () => {
         alignItems: "center",
       }}
     >
+        
       <div 
         style={{ 
           display: "grid", 
@@ -54,6 +61,7 @@ const CelebButtonGrid = () => {
                 e.currentTarget.style.transform = "scale(1)";
                 e.currentTarget.style.boxShadow = "none";
               }}
+              onClick={()=> {onSelectCeleb(celeb);}}
             >
               <img 
                 src={celeb.image || "/assets/default.jpg"} 
@@ -82,6 +90,7 @@ const CelebButtonGrid = () => {
             </span>
           </div>
         ))}
+      </div>
       </div>
     </div>
   );

@@ -1,9 +1,14 @@
-import React from "react";
+import React, {useState} from "react";
 import Header from "./components/Header";
 import CelebButtonGrid from "./components/CelebritySelect";
 import HelpButton from "./components/HelpButton";
+import UserOptions from "./components/UserOptions";
 
 const App: React.FC = () => {
+
+  const [currentPage, changeCurrentPage] = useState<number>(1);
+  const [currentCeleb, changeCurrentCeleb] = useState({});
+
   return (
     <div
       style={{
@@ -21,13 +26,23 @@ const App: React.FC = () => {
       {/* Header */}
       <Header />
 
-      {/* Subtitle */}
-      <p style={{ textAlign: "center", fontSize: "18px", marginTop: "10px", fontWeight: "bold" }}>
-        Select a celebrity below to motivate you:
-      </p>
+      
 
       {/* Celebrity Selection */}
-      <CelebButtonGrid />
+      {currentPage == 1 && (
+      <CelebButtonGrid onSelectCeleb={(x) => {
+        
+        changeCurrentCeleb(x);
+        changeCurrentPage(2);
+      }}/>  )
+      }
+
+      {currentPage == 2 && (
+
+        <UserOptions celebrityName={currentCeleb.name} celebrityImagePath={currentCeleb.image}
+        onChangeCurrentCeleb={()=> {changeCurrentPage(1);}} />
+
+      )}
       
       {/* Help Button */}
       <HelpButton />

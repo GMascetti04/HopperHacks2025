@@ -1,0 +1,33 @@
+[
+    {
+      "emoji": "😊",
+      "description": "Kind",
+      "id": "kind",
+      "message": "You can do it! Keep going!"
+    },
+    {
+      "emoji": "😡",
+      "description": "Angry",
+      "id": "angry",
+      "message": "Get up! Stop wasting time!"
+    },
+    {
+      "emoji": "😞",
+      "description": "Sad",
+      "id": "sad",
+      "message": "It's tough, but you can overcome it!"
+    },
+    {
+      "emoji": "😁",
+      "description": "Happy",
+      "id": "happy",
+      "message": "You're doing great! Keep smiling!"
+    },
+    {
+      "emoji": "😎",
+      "description": "Cool",
+      "id": "cool",
+      "message": "Stay calm, you're in control!"
+    }
+  ]
+  
