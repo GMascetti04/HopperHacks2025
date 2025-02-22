@@ -32,7 +32,7 @@ const CelebButtonGrid = () => {
           gridTemplateColumns: "repeat(5, 1fr)",
           gap: "1rem", 
           padding: "1.5rem",
-          width: "75%",
+          width: "100%",
         }}
       >
         {celebrities.map((celeb, index) => (
