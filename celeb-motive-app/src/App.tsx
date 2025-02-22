@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./components/Header";
 import CelebButtonGrid from "./components/CelebritySelect";
+import HelpButton from "./components/HelpButton";
 
 const App: React.FC = () => {
   return (
@@ -27,6 +28,10 @@ const App: React.FC = () => {
 
       {/* Celebrity Selection */}
       <CelebButtonGrid />
+      
+      {/* Help Button */}
+      <HelpButton />
+
     </div>
   );
 };
