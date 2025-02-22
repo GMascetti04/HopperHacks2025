@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 
 interface Celebrity {
   name: string;
@@ -6,50 +6,85 @@ interface Celebrity {
 }
 
 const CelebButtonGrid = () => {
-
-    const [images, setCelebrities] = useState<Celebrity[]>([]);
+  const [celebrities, setCelebrities] = useState<Celebrity[]>([]);
 
   useEffect(() => {
-
-    
-
     fetch("/celebs.json") 
       .then((response) => response.json())
-      .then((data) => {setCelebrities(data.celebs); console.log(data.celebs);})
+      .then((data) => {
+        setCelebrities(data.celebs);
+        console.log(data.celebs);
+      })
       .catch((error) => console.error("Error loading JSON:", error));
   }, []);
 
   return (
-    <div className="grid grid-cols-3 gap-4 p-4"> {/* 3 columns, 5 rows */}
-      {images.map((celeb, index) => (
-        <button 
-          key={index} 
-          className="flex flex-col items-center p-2 bg-white rounded-lg shadow-md hover:bg-gray-100 transition"
-        >
-          <img 
-            src={celeb.image} 
-            alt={celeb.name} 
-            className="w-24 h-24 object-cover rounded-full"
-          />
-          <span className="mt-2 text-sm font-semibold">{celeb.name}</span>
-        </button>
-      ))}
+    <div 
+      style={{ 
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <div 
+        style={{ 
+          display: "grid", 
+          gridTemplateColumns: "repeat(5, 1fr)",
+          gap: "1rem", 
+          padding: "1.5rem",
+          width: "75%",
+        }}
+      >
+        {celebrities.map((celeb, index) => (
+          <div key={index} style={{ textAlign: "center" }}>
+            <button 
+              type="button" 
+              style={{
+                border: "none", 
+                background: "none", 
+                padding: "0", 
+                cursor: "pointer", 
+                transition: "transform 0.3s ease, box-shadow 0.3s ease",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "scale(1.1)";
+                e.currentTarget.style.boxShadow = "0 4px 10px rgba(0, 0, 0, 0.2)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "scale(1)";
+                e.currentTarget.style.boxShadow = "none";
+              }}
+            >
+              <img 
+                src={celeb.image || "/assets/default.jpg"} 
+                alt={celeb.name} 
+                style={{
+                  width: "8rem", 
+                  height: "8rem", 
+                  objectFit: "cover", 
+                  borderRadius: "8px", 
+                  transition: "transform 0.3s ease",
+                }}
+                onMouseEnter={(e) => e.currentTarget.style.transform = "scale(1.05)"}
+                onMouseLeave={(e) => e.currentTarget.style.transform = "scale(1)"}
+              />
+            </button>
+            <span 
+              style={{
+                display: "block", 
+                marginTop: "0.5rem", 
+                marginBottom: "1rem", 
+                fontSize: "1rem", 
+                fontWeight: "bold",
+              }}
+            >
+              {celeb.name}
+            </span>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
 
 export default CelebButtonGrid;
-
-//     return (
-//       <div className="grid grid-cols-3 gap-4 p-4">
-//         {images.map((item, index) => (
-//           <button key={index} className="flex flex-col items-center p-2 bg-gray-200 rounded-lg shadow-md hover:bg-gray-300 transition">
-//             <img src={"src/assets/download.jpg"} alt={"josh"} className="w-24 h-24 object-cover rounded-md" />
-//             <span className="mt-2 text-sm font-medium">{"test name"}</span>
-//           </button>
-//         ))}
-//       </div>
-//     );
-//   };
-  
-// export default CelebButtonGrid;

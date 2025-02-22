@@ -2,7 +2,7 @@
     "celebs" : [
         {
             "name" : "Pedro Pascal",
-            "image" : "public/assets/pedro_pascal.jpg" 
+            "image" : "/assets/pedro_pascal.png" 
         }, 
         {
             "name" : "Andrew Garfield",
@@ -10,7 +10,7 @@
         },
         {
             "name" : "Charles Leclerc",
-            "image" : "public/assets/pedro_pascal.jpg"
+            "image" : "/assets/charles_leclerc.jpg"
         },
         {
             "name" : "Miles Teller",
