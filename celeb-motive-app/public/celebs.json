@@ -1,0 +1,64 @@
+{
+    "celebs" : [
+        {
+            "name" : "Pedro Pascal",
+            "image" : "public/assets/pedro_pascal.jpg" 
+        }, 
+        {
+            "name" : "Andrew Garfield",
+            "image" : ""
+        },
+        {
+            "name" : "Charles Leclerc",
+            "image" : "public/assets/pedro_pascal.jpg"
+        },
+        {
+            "name" : "Miles Teller",
+            "image" : ""
+        },
+        {
+            "name" : "Timothee Chalamet",
+            "image" : ""
+        },
+        {
+            "name" : "Zendaya",
+            "image" : ""
+        },
+        {
+            "name" : "Jacob Elordi",
+            "image" : ""
+        },
+        {
+            "name" : "Florence Pugh",
+            "image" : ""
+        },
+        {
+            "name" : "Sydney Sweeney",
+            "image" : ""
+        },
+        {
+            "name" : "Harry Styles",
+            "image" : ""
+        },
+        {
+            "name" : "Sabrina Carpenter",
+            "image" : ""
+        },
+        {
+            "name" : "Austin Butler",
+            "image" : ""
+        },
+        {
+            "name" : "Josh Hutcherson",
+            "image" : ""
+        },
+        {
+            "name" : "Paul Mescal",
+            "image" : ""
+        },
+        {
+            "name" : "Addison Rae",
+            "image" : ""
+        }
+    ]
+}
