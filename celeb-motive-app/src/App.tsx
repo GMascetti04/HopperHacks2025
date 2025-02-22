@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import CelebButtonGrid from "./components/CelebritySelect";
 import HelpButton from "./components/HelpButton";
 import UserOptions from "./components/UserOptions";
+import MotivationPage from "./components/MotivationPage";
 
 const App: React.FC = () => {
 
@@ -40,8 +41,12 @@ const App: React.FC = () => {
       {currentPage == 2 && (
 
         <UserOptions celebrityName={currentCeleb.name} celebrityImagePath={currentCeleb.image}
-        onChangeCurrentCeleb={()=> {changeCurrentPage(1);}} />
+        onChangeCurrentCeleb={()=> {changeCurrentPage(1);}} onDone={()=> {changeCurrentPage(3)}} />
 
+      )}
+
+      {currentPage == 3 && (
+        <MotivationPage />
       )}
       
       {/* Help Button */}

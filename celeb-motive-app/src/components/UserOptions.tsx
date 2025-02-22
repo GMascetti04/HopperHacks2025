@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 
 
-const UserOptions = ({ celebrityName, celebrityImagePath, onChangeCurrentCeleb }) => {
+const UserOptions = ({ celebrityName, celebrityImagePath, onChangeCurrentCeleb, onDone }) => {
 
     const [text, changeText] = useState('')
 
@@ -41,7 +41,7 @@ const UserOptions = ({ celebrityName, celebrityImagePath, onChangeCurrentCeleb }
                         <img
                             src={celebrityImagePath}
                             alt={celebrityName}
-                            style={{ width: '100px', height: '100px', borderRadius: '50%' }}
+                            style={{ width: '100px', height: '100px', borderRadius: '50%', objectFit: "cover", objectPosition: "center", }}
                         />
                         <p style={{ marginRight: '10px', alignItems: 'center' }}>{celebrityName}</p> {/* Ensure name is centered */}
                         <button onClick={
@@ -115,7 +115,7 @@ const UserOptions = ({ celebrityName, celebrityImagePath, onChangeCurrentCeleb }
                 </div>
             )}
 
-            <button>Motiatve Me!</button>
+            <button onClick={onDone}>Motiatve Me!</button>
 
         </div>
 
