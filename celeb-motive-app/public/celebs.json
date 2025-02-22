@@ -2,63 +2,63 @@
     "celebs" : [
         {
             "name" : "Pedro Pascal",
-            "image" : "/assets/pedro_pascal.png" 
+            "image" : "public/assets/pedro_pascal.jpg" 
         }, 
         {
             "name" : "Andrew Garfield",
-            "image" : ""
+            "image" : "public/assets/andrew_garfield.jpg"
         },
         {
             "name" : "Charles Leclerc",
-            "image" : "/assets/charles_leclerc.jpg"
+            "image" : "public/assets/charles_leclerc.jpg"
         },
         {
             "name" : "Miles Teller",
-            "image" : ""
+            "image" : "public/assets/miles_teller.jpg"
         },
         {
             "name" : "Timothee Chalamet",
-            "image" : ""
+            "image" : "public/assets/timothee_chalamet.jpg"
         },
         {
             "name" : "Zendaya",
-            "image" : ""
+            "image" : "public/assets/zendaya.jpg"
         },
         {
             "name" : "Jacob Elordi",
-            "image" : ""
+            "image" : "public/assets/jacob_elordi.jpg"
         },
         {
             "name" : "Florence Pugh",
-            "image" : ""
+            "image" : "public/assets/florence_pugh.jpg"
         },
         {
             "name" : "Sydney Sweeney",
-            "image" : ""
+            "image" : "public/assets/sydney_sweeney.jpg"
         },
         {
             "name" : "Harry Styles",
-            "image" : ""
+            "image" : "public/assets/harry_styles.jpg"
         },
         {
             "name" : "Sabrina Carpenter",
-            "image" : ""
+            "image" : "public/assets/sabrina_carpenter.jpg"
         },
         {
-            "name" : "Austin Butler",
-            "image" : ""
+            "name" : "Ariana Grande",
+            "image" : "public/assets/ariana_grande.jpg"
         },
         {
             "name" : "Josh Hutcherson",
-            "image" : ""
+            "image" : "public/assets/josh_hutcherson.jpg"
         },
         {
             "name" : "Paul Mescal",
-            "image" : ""
+            "image" : "public/assets/paul_mescal.jpg"
         },
         {
-            "name" : "Addison Rae",
-            "image" : ""
+            "name" : "Scarlett Johansson",
+            "image" : "public/assets/scarlett_johansson.jpg"
         }
     ]
 }
