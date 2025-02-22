@@ -9,6 +9,7 @@ import os
 app = Flask(__name__)
 
 
+@app.route("/motivational-message", methods=["GET"])
 def get_motivational_quote():
     prompt = "Give me a motivational quote."
 
@@ -21,10 +22,10 @@ def get_motivational_quote():
             },
         ],
     )
-    return response.message.content
+    return jsonify({"message": response.message.content})
 
 
-@app.route("/generate-motivation", methods=["GET"])
+@app.route("/motivational-audio", methods=["GET"])
 def generate_motivation():
     motivational_text = get_motivational_quote()
 
