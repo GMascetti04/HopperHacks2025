@@ -1,19 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Quicksand:wght@400;600&display=swap');
+
 body {
   background-color: #aee2ff; /* Light blue */
   color: #333; /* Dark gray for readability */
-  font-family: "Poppins", sans-serif; /* Fun and modern font */
+  font-family: "Quicksand", sans-serif; /* Soft, rounded text */
   margin: 0;
   padding: 0;
   text-align: center;
 }
 
-/* Ensure headers and text look aesthetic */
+/* Aesthetic Headers */
 h1, h2, h3 {
-  font-family: "Luckiest Guy", cursive;
+  font-family: "Fredoka", sans-serif; /* Big, bubbly font */
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  color: #ffffff;
 }
 
+/* Text Styling */
 p {
   font-size: 18px;
   font-weight: 500;
+  font-family: "Quicksand", sans-serif;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
 }
