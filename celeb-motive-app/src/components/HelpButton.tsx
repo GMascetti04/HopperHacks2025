@@ -28,7 +28,7 @@ const HelpButton: React.FC = () => {
           transition: "all 0.3s ease-in-out",
         }}
       >
-        Need Help❓ 
+        Need Help?
       </button>
 
       {/* Pop-up Modal */}
@@ -41,7 +41,7 @@ const HelpButton: React.FC = () => {
             backgroundColor: "#f8f9fa", // Light gray for contrast
             color: "#333",
             borderRadius: "12px",
-            padding: "20px",
+            padding: "10px",
             width: "280px",
             boxShadow: "0 4px 12px rgba(0, 0, 0, 0.3)",
             textAlign: "center",
