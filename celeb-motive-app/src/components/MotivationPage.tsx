@@ -1,7 +1,7 @@
 import React from "react";
 import CountdownTimer from "./CountdownTimer";
 
-const MotivationPage = ({ celebrityName, celebrityImagePath }) => {
+const MotivationPage = ({ celebrityName, celebrityImagePath, timerDuration }) => {
   return (
     <div
       style={{
@@ -91,7 +91,7 @@ const MotivationPage = ({ celebrityName, celebrityImagePath }) => {
         >
           ⏳ Focus Timer
         </h2>
-        <CountdownTimer initialTime={10} />
+        <CountdownTimer initialTime={timerDuration} />
       </div>
 
       {/* Choose Another Celebrity Button (Bottom Center) */}

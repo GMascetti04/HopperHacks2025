@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 
 
 
-const UserOptions = ({ celebrityName, celebrityImagePath, onChangeCurrentCeleb, onDone }) => {
+const UserOptions = ({ celebrityName, celebrityImagePath, onChangeCurrentCeleb, onDone, onChangeDuration }) => {
 
     const [text, changeText] = useState('')
 
@@ -32,7 +35,7 @@ const UserOptions = ({ celebrityName, celebrityImagePath, onChangeCurrentCeleb, 
 
         <div>
 
-            <div style={{display: 'flex'}}>
+            <div style={{display: 'flex', gap: '50px'}}>
 
                 <div style={{alignItems: 'center', justifyContent: 'center', textAlign: 'center', marginBottom: '20px' }}>
                     <h1 style={{ marginRight: '20px', display: 'flex', alignItems: 'center' }}>You Selected:</h1>
@@ -49,6 +52,21 @@ const UserOptions = ({ celebrityName, celebrityImagePath, onChangeCurrentCeleb, 
                         }>Change</button>
 
                     </div>
+                </div>
+
+                <div>
+                    <h1>Set Timer:</h1>
+                    <LocalizationProvider dateAdapter={AdapterDateFns}>
+                    <TimePicker views={['hours', 'minutes', 'seconds']}label="Select Duration" ampm={false} onChange={(date) => {
+                        console.log(date?.getHours());
+                        console.log(date?.getMinutes());
+                        console.log(date?.getSeconds());
+
+                        onChangeDuration(date.getHours() * 3600 + date.getMinutes() * 60 + date.getSeconds());
+                    }}
+                />
+                    </LocalizationProvider>
+
                 </div>
 
                 <div>
@@ -115,7 +133,7 @@ const UserOptions = ({ celebrityName, celebrityImagePath, onChangeCurrentCeleb, 
                 </div>
             )}
 
-            <button onClick={onDone}>Motiatve Me!</button>
+            <button onClick={onDone}>Motivate Me!</button>
 
         </div>
 

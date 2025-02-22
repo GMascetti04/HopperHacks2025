@@ -8,6 +8,7 @@ import MotivationPage from "./components/MotivationPage";
 const App: React.FC = () => {
   const [currentPage, changeCurrentPage] = useState<number>(1);
   const [currentCeleb, changeCurrentCeleb] = useState({ name: "", image: "" });
+  const [currentTimerDuration, changeCurrentTimerDuration] = useState();
 
   return (
     <div
@@ -43,6 +44,7 @@ const App: React.FC = () => {
           celebrityImagePath={currentCeleb.image}
           onChangeCurrentCeleb={() => changeCurrentPage(1)}
           onDone={() => changeCurrentPage(3)}
+          onChangeDuration={(x) => {changeCurrentTimerDuration(x);}}
         />
       )}
 
@@ -51,6 +53,7 @@ const App: React.FC = () => {
         <MotivationPage
           celebrityName={currentCeleb.name}
           celebrityImagePath={currentCeleb.image}
+          timerDuration={currentTimerDuration}
         />
       )}
 
