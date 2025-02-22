@@ -32,15 +32,15 @@ const CountdownTimer = ({ initialTime }) => {
   const formattedTime = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
 
   return (
-    <div style={{ textAlign: "center", marginTop: "20px" }}>
+    <div style={{ textAlign: "center", marginTop: "10px" }}> {/* Reduced margin */}
       {/* Large Timer Display */}
       <h1
         style={{
-          fontSize: "100px",
+          fontSize: "150px",
           fontWeight: "bold",
           color: "#0077ff",
           textShadow: "3px 3px 8px rgba(0, 0, 0, 0.2)",
-          marginBottom: "10px",
+          margin: "0", // Remove extra margins
         }}
       >
         {timeLeft > 0 ? formattedTime : "Time's up!"}
@@ -62,6 +62,7 @@ const CountdownTimer = ({ initialTime }) => {
               cursor: "pointer",
               transition: "all 0.3s ease-in-out",
               boxShadow: "0 4px 10px rgba(0, 0, 0, 0.3)",
+              marginTop: "10px", // Smaller gap from the timer
             }}
           >
             {isPaused ? "Resume" : "Pause"}
@@ -70,13 +71,12 @@ const CountdownTimer = ({ initialTime }) => {
           {/* Status Indicator */}
           <div
             style={{
-              marginTop: "10px",
+              marginTop: "5px", // Smaller gap from button
               fontSize: "20px",
               fontWeight: "bold",
               color: isPaused ? "red" : "green",
             }}
           >
-            {isPaused ? "Paused" : "Running"}
           </div>
         </div>
       )}

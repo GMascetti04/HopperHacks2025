@@ -5,15 +5,15 @@ const MotivationPage = ({ celebrityName, celebrityImagePath, timerDuration }) =>
   return (
     <div
       style={{
-        minHeight: "100vh",
+        minHeight: "80vh",
         display: "flex",
         flexDirection: "row",
-        alignItems: "center",
+        alignItems: "flex-start", // Align both top sections together
         justifyContent: "center",
         textAlign: "center",
         backgroundSize: "cover",
-        padding: "20px",
-        position: "relative", // Needed for button positioning
+        padding: "40px 20px", // Adjusted padding for alignment
+        position: "relative",
       }}
     >
       {/* Left Column: Celebrity Info */}
@@ -23,12 +23,10 @@ const MotivationPage = ({ celebrityName, celebrityImagePath, timerDuration }) =>
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          justifyContent: "center",
           textAlign: "center",
-          padding: "20px",
         }}
       >
-        {/* Celebrity Image (Square) */}
+        {/* Celebrity Image (Aligned with Focus Timer Text) */}
         <img
           src={celebrityImagePath}
           alt={celebrityName}
@@ -39,6 +37,7 @@ const MotivationPage = ({ celebrityName, celebrityImagePath, timerDuration }) =>
             objectFit: "cover",
             objectPosition: "center",
             boxShadow: "0 8px 16px rgba(0, 0, 0, 0.3)",
+            marginBottom: "10px", // Ensures name and quote are close to image
           }}
         />
 
@@ -47,9 +46,9 @@ const MotivationPage = ({ celebrityName, celebrityImagePath, timerDuration }) =>
           style={{
             fontSize: "36px",
             fontWeight: "bold",
-            marginTop: "20px",
             color: "white",
             textShadow: "2px 2px 5px rgba(0, 0, 0, 0.5)",
+            marginBottom: "5px",
           }}
         >
           {celebrityName}
@@ -59,9 +58,8 @@ const MotivationPage = ({ celebrityName, celebrityImagePath, timerDuration }) =>
         <p
           style={{
             fontSize: "22px",
-            fontWeight: "500",
-            maxWidth: "400px",
-            marginTop: "10px",
+            fontWeight: "600",
+            maxWidth: "600px",
             color: "white",
             textShadow: "2px 2px 5px rgba(0, 0, 0, 0.5)",
           }}
@@ -77,16 +75,15 @@ const MotivationPage = ({ celebrityName, celebrityImagePath, timerDuration }) =>
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          justifyContent: "center",
         }}
       >
         <h2
           style={{
             fontSize: "42px",
             fontWeight: "bold",
-            color: "white", // Unified color scheme
+            color: "white",
             textShadow: "2px 2px 5px rgba(0, 0, 0, 0.2)",
-            marginBottom: "5px",
+            marginBottom: "5px", // Adjusted to align with the top of the image
           }}
         >
           ⏳ Focus Timer
