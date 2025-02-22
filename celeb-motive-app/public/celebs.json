@@ -10,7 +10,11 @@
         },
         {
             "name" : "Charles Leclerc",
+<<<<<<< HEAD
             "image" : "public/assets/charles_leclerc.jpg"
+=======
+            "image" : "/assets/charles_leclerc.png"
+>>>>>>> 2df1758f2c368d0ef2757f968390aa0085383954
         },
         {
             "name" : "Miles Teller",
