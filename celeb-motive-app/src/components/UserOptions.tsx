@@ -111,7 +111,7 @@ const UserOptions = ({ celebrityName, celebrityImagePath, onChangeCurrentCeleb, 
 
             {selectedMood && (
                 <div style={{ marginTop: "20px", fontSize: "18px", fontWeight: "bold" }}>
-                    Motivational Message: {selectedMood.message}
+                    The celebrity that you've chosen will {selectedMood.message}
                 </div>
             )}
 
