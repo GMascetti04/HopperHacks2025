@@ -32,15 +32,18 @@ const CountdownTimer = ({ initialTime }) => {
   const formattedTime = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
 
   return (
-    <div style={{ textAlign: "center", marginTop: "20px" }}>
-      {/* Large Timer Display */}
+    <div style={{ textAlign: "center", marginTop: "2vh" }}> {/* Uses vh for consistent spacing */}
+      {/* Large Timer Display with Relative Width */}
       <h1
         style={{
-          fontSize: "100px",
+          fontSize: "10vw", // ✅ Scales based on viewport width
           fontWeight: "bold",
           color: "#0077ff",
           textShadow: "3px 3px 8px rgba(0, 0, 0, 0.2)",
-          marginBottom: "10px",
+          margin: "0",
+          width: "30vw", // ✅ Ensures fixed width relative to screen
+          maxWidth: "15em", // ✅ Prevents text from overflowing on larger screens
+          textAlign: "center",
         }}
       >
         {timeLeft > 0 ? formattedTime : "Time's up!"}
@@ -52,16 +55,17 @@ const CountdownTimer = ({ initialTime }) => {
           <button
             onClick={togglePause}
             style={{
-              fontSize: "24px",
+              fontSize: "1.5rem",
               fontWeight: "bold",
               backgroundColor: isPaused ? "#ff4081" : "#0077ff",
               color: "white",
-              padding: "12px 20px",
+              padding: "0.8rem 1.5rem",
               borderRadius: "10px",
               border: "none",
               cursor: "pointer",
               transition: "all 0.3s ease-in-out",
               boxShadow: "0 4px 10px rgba(0, 0, 0, 0.3)",
+              marginTop: "1vh", // ✅ Uses vh for consistent spacing
             }}
           >
             {isPaused ? "Resume" : "Pause"}
@@ -70,13 +74,12 @@ const CountdownTimer = ({ initialTime }) => {
           {/* Status Indicator */}
           <div
             style={{
-              marginTop: "10px",
-              fontSize: "20px",
+              marginTop: "0.5vh", // ✅ Prevents excessive spacing
+              fontSize: "1.2rem",
               fontWeight: "bold",
               color: isPaused ? "red" : "green",
             }}
           >
-            {isPaused ? "Paused" : "Running"}
           </div>
         </div>
       )}

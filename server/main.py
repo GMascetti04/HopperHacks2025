@@ -22,7 +22,7 @@ def get_motivational_quote(query_text):
             },
         ],
     )
-    return response.message.content
+    return jsonify({"message": response.message.content})
 
 
 @app.route("/generate-motivation", methods=["POST"])
