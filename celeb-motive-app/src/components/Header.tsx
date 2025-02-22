@@ -5,7 +5,7 @@ const Header: React.FC = () => {
     <header
       style={{
         textAlign: "center",
-        padding: "15px",
+        padding: "10px",
         fontSize: "42px",
         fontWeight: "bold",
         background: "rgba(255, 255, 255, 0.5)", // Transparent white for a soft overlay

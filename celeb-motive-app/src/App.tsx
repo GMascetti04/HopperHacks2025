@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Header from "./components/Header";
 import CelebButtonGrid from "./components/CelebritySelect";
 import HelpButton from "./components/HelpButton";
@@ -6,9 +6,8 @@ import UserOptions from "./components/UserOptions";
 import MotivationPage from "./components/MotivationPage";
 
 const App: React.FC = () => {
-
   const [currentPage, changeCurrentPage] = useState<number>(1);
-  const [currentCeleb, changeCurrentCeleb] = useState({});
+  const [currentCeleb, changeCurrentCeleb] = useState({ name: "", image: "" });
 
   return (
     <div
@@ -27,31 +26,36 @@ const App: React.FC = () => {
       {/* Header */}
       <Header />
 
-      
-
       {/* Celebrity Selection */}
-      {currentPage == 1 && (
-      <CelebButtonGrid onSelectCeleb={(x) => {
-        
-        changeCurrentCeleb(x);
-        changeCurrentPage(2);
-      }}/>  )
-      }
-
-      {currentPage == 2 && (
-
-        <UserOptions celebrityName={currentCeleb.name} celebrityImagePath={currentCeleb.image}
-        onChangeCurrentCeleb={()=> {changeCurrentPage(1);}} onDone={()=> {changeCurrentPage(3)}} />
-
+      {currentPage === 1 && (
+        <CelebButtonGrid
+          onSelectCeleb={(selectedCelebrity) => {
+            changeCurrentCeleb(selectedCelebrity);
+            changeCurrentPage(2);
+          }}
+        />
       )}
 
-      {currentPage == 3 && (
-        <MotivationPage />
+      {/* User Options Page */}
+      {currentPage === 2 && (
+        <UserOptions
+          celebrityName={currentCeleb.name}
+          celebrityImagePath={currentCeleb.image}
+          onChangeCurrentCeleb={() => changeCurrentPage(1)}
+          onDone={() => changeCurrentPage(3)}
+        />
       )}
-      
+
+      {/* Motivation Page (Final Screen) */}
+      {currentPage === 3 && (
+        <MotivationPage
+          celebrityName={currentCeleb.name}
+          celebrityImagePath={currentCeleb.image}
+        />
+      )}
+
       {/* Help Button */}
       <HelpButton />
-
     </div>
   );
 };

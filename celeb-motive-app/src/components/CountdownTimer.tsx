@@ -2,51 +2,81 @@ import React, { useState, useEffect } from 'react';
 
 const CountdownTimer = ({ initialTime }) => {
   const [timeLeft, setTimeLeft] = useState(initialTime);
-  const [isPaused, setIsPaused] = useState(false); // State to track if the timer is paused
-  const [intervalId, setIntervalId] = useState(null); // Store the interval ID
+  const [isPaused, setIsPaused] = useState(false);
+  const [intervalId, setIntervalId] = useState(null);
 
   useEffect(() => {
     if (timeLeft > 0 && !isPaused) {
       const interval = setInterval(() => {
-        setTimeLeft((prevTime) => prevTime - 1); // Decrease time left by 1 each second
+        setTimeLeft((prevTime) => prevTime - 1);
       }, 1000);
       setIntervalId(interval);
 
-      return () => clearInterval(interval); // Cleanup interval on unmount
+      return () => clearInterval(interval);
     }
-  }, [timeLeft, isPaused]); // Run when timeLeft or isPaused changes
+  }, [timeLeft, isPaused]);
 
-  // Function to toggle pause and unpause
   const togglePause = () => {
     if (isPaused) {
-      // When unpausing, restart the timer
       setIsPaused(false);
     } else {
-      // When pausing, stop the timer
       clearInterval(intervalId);
       setIsPaused(true);
     }
   };
 
-  // Calculate hours, minutes, and seconds
   const hours = Math.floor(timeLeft / 3600);
   const minutes = Math.floor((timeLeft % 3600) / 60);
   const seconds = timeLeft % 60;
 
-  // Format time with leading zeros (e.g., 02:03:09)
   const formattedTime = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
 
   return (
-    <div>
-      <h2>Countdown Timer</h2>
-      <p>{timeLeft > 0 ? formattedTime : "Time's up!"}</p>
+    <div style={{ textAlign: "center", marginTop: "20px" }}>
+      {/* Large Timer Display */}
+      <h1
+        style={{
+          fontSize: "100px",
+          fontWeight: "bold",
+          color: "#0077ff",
+          textShadow: "3px 3px 8px rgba(0, 0, 0, 0.2)",
+          marginBottom: "10px",
+        }}
+      >
+        {timeLeft > 0 ? formattedTime : "Time's up!"}
+      </h1>
 
+      {/* Pause/Unpause Button */}
       {timeLeft > 0 && (
         <div>
-          <button onClick={togglePause}>{isPaused ? 'Unpause' : 'Pause'}</button>
-          {/* Display a visual cue */}
-          <div style={{ color: isPaused ? 'red' : 'green', fontWeight: 'bold' }}>
-            {isPaused ? 'Paused' : 'Running'}
+          <button
+            onClick={togglePause}
+            style={{
+              fontSize: "24px",
+              fontWeight: "bold",
+              backgroundColor: isPaused ? "#ff4081" : "#0077ff",
+              color: "white",
+              padding: "12px 20px",
+              borderRadius: "10px",
+              border: "none",
+              cursor: "pointer",
+              transition: "all 0.3s ease-in-out",
+              boxShadow: "0 4px 10px rgba(0, 0, 0, 0.3)",
+            }}
+          >
+            {isPaused ? "Resume" : "Pause"}
+          </button>
+
+          {/* Status Indicator */}
+          <div
+            style={{
+              marginTop: "10px",
+              fontSize: "20px",
+              fontWeight: "bold",
+              color: isPaused ? "red" : "green",
+            }}
+          >
+            {isPaused ? "Paused" : "Running"}
           </div>
         </div>
       )}
