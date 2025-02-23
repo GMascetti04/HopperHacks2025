@@ -84,7 +84,7 @@ const CountdownTimer = ({ initialTime }) => {
             style={{
               fontSize: "1.2rem",
               fontWeight: "bold",
-              backgroundColor: "#8aa0ab",
+              backgroundColor: "#738b94",
               color: "white",
               padding: "0.7rem 1.2rem",
               borderRadius: "10px",
