@@ -34,38 +34,43 @@ const MotivationPage = ({ celebrityName, celebrityImagePath, timerDuration }) =>
         display: "flex",
         flexDirection: "row",
         alignItems: "flex-start",
+        // alignItems: "center", // Ensures both halves align at the center
         justifyContent: "center",
         textAlign: "center",
         backgroundSize: "cover",
         padding: "20px 10px",
         position: "relative",
+        maxWidth: "90vw",
+        margin: "0 auto",
       }}
     >
-      {/* Left Column: Celebrity Info */}
+      {/* Left Column: Celebrity Info (50% Width) */}
       <div
         style={{
           flex: 1,
+          maxWidth: "45%", // Makes it take exactly half of the screen
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
+          justifyContent: "center", // Centers everything inside
           textAlign: "center",
         }}
       >
         {/* Celebrity Image (Scales with Window Size) */}
         <img
-        src={celebrityImagePath}
-        alt={celebrityName}
-        style={{
-            width: "min(30vw, 360px)",  // Scales up to 400px max
-            height: "min(30vw, 360px)", // Maintains square aspect ratio
+          src={celebrityImagePath}
+          alt={celebrityName}
+          style={{
+            width: "80%", // Adjusted to make it responsive
+            maxHeight: "300px",
+            maxWidth: "300px",
             borderRadius: "20px",
             objectFit: "cover",
             objectPosition: "center",
             boxShadow: "0 8px 16px rgba(0, 0, 0, 0.3)",
             marginBottom: "10px",
-        }}
+          }}
         />
-
 
         {/* Celebrity Name */}
         <h1
@@ -74,27 +79,44 @@ const MotivationPage = ({ celebrityName, celebrityImagePath, timerDuration }) =>
             fontWeight: "bold",
             color: "white",
             textShadow: "2px 2px 5px rgba(0, 0, 0, 0.5)",
-            marginBottom: "1px",
+            marginBottom: "5px",
           }}
         >
           {celebrityName}
         </h1>
 
         {/* Motivational Quote */}
-        <p
+        <div
           style={{
-            fontSize: "20px",
-            fontWeight: "500",
-            maxWidth: "700px",
-            color: "white",
-            textShadow: "2px 2px 5px rgba(0, 0, 0, 0.5)",
-            marginBottom: "10px",
+            width: "80%", // Ensures quote never exceeds the width of the section
+            minHeight: "80px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            textAlign: "center",
+            overflow: "hidden",
+            padding: "10px",
+            wordWrap: "break-word",
+            whiteSpace: "normal",
           }}
         >
-          {quote}
-        </p>
+          <p
+            style={{
+              fontSize: "18px",
+              fontWeight: "500",
+              color: "white",
+              textShadow: "2px 2px 5px rgba(0, 0, 0, 0.5)",
+              margin: "0",
+              whiteSpace: "normal",
+              overflowWrap: "break-word",
+              wordBreak: "break-word",
+            }}
+          >
+            {quote}
+          </p>
+        </div>
 
-        {/* Generate New Quote Button (Left Side) */}
+        {/* Generate New Quote Button */}
         <button
           onClick={fetchNewQuote}
           style={{
@@ -118,18 +140,18 @@ const MotivationPage = ({ celebrityName, celebrityImagePath, timerDuration }) =>
         </button>
       </div>
 
-      {/* Right Column: Countdown Timer */}
-        <div
+      {/* Right Column: Countdown Timer (50% Width) */}
+      <div
         style={{
-            flex: 1,
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center", 
-            alignItems: "center",
-            height: "100%", 
+          flex: 1,
+          maxWidth: "45%", // Makes it take exactly half of the screen
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100%",
         }}
-        >
-
+      >
         <h2
           style={{
             fontSize: "42px",
@@ -143,10 +165,10 @@ const MotivationPage = ({ celebrityName, celebrityImagePath, timerDuration }) =>
         </h2>
         <CountdownTimer initialTime={timerDuration} />
 
-        {/* Choose Another Celebrity Button (Right Side, Under Reset Button) */}
+        {/* Choose Another Celebrity Button */}
         <button
           style={{
-            marginTop: "70px", // Moves the button lower
+            marginTop: "50px", // Moves the button lower
             padding: "12px 24px",
             fontSize: "16px",
             fontWeight: "bold",
@@ -157,7 +179,7 @@ const MotivationPage = ({ celebrityName, celebrityImagePath, timerDuration }) =>
             cursor: "pointer",
             transition: "all 0.3s ease-in-out",
             boxShadow: "0 4px 10px rgba(0, 0, 0, 0.3)",
-            alignSelf: "center", // Keeps it aligned properly
+            alignSelf: "center",
           }}
           onClick={() => window.location.reload()}
         >

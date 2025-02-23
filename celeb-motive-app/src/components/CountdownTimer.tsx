@@ -50,23 +50,31 @@ const CountdownTimer = ({ initialTime }) => {
 
   return (
     <div style={{ textAlign: "center", marginTop: "2vh" }}>
+      {/* Large Timer Display */}
       <h1
         style={{
-          fontSize: "10vw",
+          fontSize: timeLeft > 0 ? "8vw" : "8vw",
           fontWeight: "bold",
           color: "#0077ff",
           textShadow: "3px 3px 8px rgba(0, 0, 0, 0.2)",
-          margin: "0",
-          width: "30vw",
-          maxWidth: "15em",
+          margin: "0 auto",
+          width: "12ch", // Fixes width to match the length of "00:00:00"
           textAlign: "center",
+          whiteSpace: "nowrap",
+          display: "flex",
+          justifyContent: "center", // Centers text horizontally
+          alignItems: "center", // Centers text vertically
         }}
       >
         {timeLeft > 0 ? formattedTime : "Time's up!"}
       </h1>
 
-      {timeLeft > 0 && (
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginTop: "1vh" }}>
+
+
+      {/* Button Container */}
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginTop: "1vh" }}>
+        {/* Pause/Unpause Button (Only Shows When Timer is Running) */}
+        {timeLeft > 0 && (
           <button
             onClick={togglePause}
             style={{
@@ -81,40 +89,44 @@ const CountdownTimer = ({ initialTime }) => {
               transition: "all 0.3s ease-in-out",
               boxShadow: "0 4px 10px rgba(0, 0, 0, 0.3)",
               marginBottom: "0.8rem",
+              marginBottom: "0.8rem",
             }}
           >
             {isPaused ? "Resume" : "Pause"}
           </button>
+        )}
 
-          <button
-            onClick={resetTimer}
-            style={{
-              fontSize: "1.2rem",
-              fontWeight: "bold",
-              backgroundColor: "#738b94",
-              color: "white",
-              padding: "0.7rem 1.2rem",
-              borderRadius: "10px",
-              border: "none",
-              cursor: "pointer",
-              transition: "all 0.3s ease-in-out",
-              boxShadow: "0 4px 10px rgba(0, 0, 0, 0.3)",
-            }}
-          >
-             Reset 🔄
-          </button>
+        {/* Reset Button (ALWAYS Visible) */}
+        <button
+          onClick={resetTimer}
+          style={{
+            fontSize: "1.2rem",
+            fontWeight: "bold",
+            backgroundColor: "#738b94",
+            color: "white",
+            padding: "0.7rem 1.2rem",
+            borderRadius: "10px",
+            border: "none",
+            cursor: "pointer",
+            transition: "all 0.3s ease-in-out",
+            boxShadow: "0 4px 10px rgba(0, 0, 0, 0.3)",
+          }}
+        >
+          Reset 🔄
+        </button>
 
-          <div
-            style={{
-              marginTop: "0.5vh",
-              fontSize: "1.2rem",
-              fontWeight: "bold",
-              color: isPaused ? "red" : "green",
-            }}
-          >
-          </div>
+        {/* Status Indicator */}
+        <div
+          style={{
+            marginTop: "0.5vh",
+            fontSize: "1.2rem",
+            fontWeight: "bold",
+            color: isPaused ? "red" : "green",
+          }}
+        >
+          {/* {isPaused ? "Paused" : "Running"} */}
         </div>
-      )}
+      </div>
     </div>
   );
 };
