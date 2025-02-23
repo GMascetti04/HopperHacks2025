@@ -5,6 +5,10 @@ const CountdownTimer = ({ initialTime }) => {
   const [isPaused, setIsPaused] = useState(false);
   const [intervalId, setIntervalId] = useState(null);
 
+  // Load audio file
+  const alarmSound = new Audio('/timer.mp3'); // Ensure bell.mp3 is in public folder
+  alarmSound.loop = true;
+
   useEffect(() => {
     if (timeLeft > 0 && !isPaused) {
       const interval = setInterval(() => {
@@ -15,6 +19,13 @@ const CountdownTimer = ({ initialTime }) => {
       return () => clearInterval(interval);
     }
   }, [timeLeft, isPaused]);
+
+  // Play bell sound when time reaches zero
+  useEffect(() => {
+    if (timeLeft === 0) {
+      alarmSound.play();
+    }
+  }, [timeLeft]);
 
   const togglePause = () => {
     if (isPaused) {
@@ -38,8 +49,7 @@ const CountdownTimer = ({ initialTime }) => {
   const formattedTime = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
 
   return (
-    <div style={{ textAlign: "center", marginTop: "2vh" }}> {/* Reduced margin */}
-      {/* Large Timer Display */}
+    <div style={{ textAlign: "center", marginTop: "2vh" }}>
       <h1
         style={{
           fontSize: "10vw",
@@ -55,10 +65,8 @@ const CountdownTimer = ({ initialTime }) => {
         {timeLeft > 0 ? formattedTime : "Time's up!"}
       </h1>
 
-      {/* Button Container */}
       {timeLeft > 0 && (
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginTop: "1vh" }}>
-          {/* Pause/Unpause Button */}
           <button
             onClick={togglePause}
             style={{
@@ -72,13 +80,12 @@ const CountdownTimer = ({ initialTime }) => {
               cursor: "pointer",
               transition: "all 0.3s ease-in-out",
               boxShadow: "0 4px 10px rgba(0, 0, 0, 0.3)",
-              marginBottom: "0.8rem", // Spacing before Reset button
+              marginBottom: "0.8rem",
             }}
           >
             {isPaused ? "Resume" : "Pause"}
           </button>
 
-          {/* Reset Button */}
           <button
             onClick={resetTimer}
             style={{
@@ -97,7 +104,6 @@ const CountdownTimer = ({ initialTime }) => {
              Reset 🔄
           </button>
 
-          {/* Status Indicator */}
           <div
             style={{
               marginTop: "0.5vh",
@@ -106,7 +112,6 @@ const CountdownTimer = ({ initialTime }) => {
               color: isPaused ? "red" : "green",
             }}
           >
-            {/* {isPaused ? "Paused" : "Running"} */}
           </div>
         </div>
       )}
