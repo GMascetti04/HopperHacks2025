@@ -3,31 +3,31 @@
       "emoji": "😊",
       "description": "Kind",
       "id": "kind",
-      "message": "be kind and supportive with their encouragement!"
+      "message": "be kind and supportive with their encouragement"
     },
     {
       "emoji": "😡",
       "description": "Angry",
       "id": "angry",
-      "message": "pretend to be angry with you if you are looking at them instead!"
+      "message": "pretend to be angry with you if you are looking at them instead"
     },
     {
       "emoji": "😞",
       "description": "Sad",
       "id": "sad",
-      "message": "be upset if you are taking a break!"
+      "message": "be upset if you are taking a break"
     },
     {
       "emoji": "💁‍♀️",
       "description": "Sassy",
       "id": "sassy",
-      "message": "sassy with their encouragement!"
+      "message": "be sassy with their encouragement"
     },
     {
       "emoji": "🫸",
       "description": "Pushy",
       "id": "pushy",
-      "message": "very pushy on delivering encouragement!"
+      "message": "be very pushy on delivering encouragement"
     }
   ]
   
