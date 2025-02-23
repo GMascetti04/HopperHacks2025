@@ -4,13 +4,15 @@ import CelebButtonGrid from "./components/CelebritySelect";
 import HelpButton from "./components/HelpButton";
 import UserOptions from "./components/UserOptions";
 import MotivationPage from "./components/MotivationPage";
+import { Mood } from "./types";
+
 
 const App: React.FC = () => {
   const [currentPage, changeCurrentPage] = useState<number>(1);
   const [currentCeleb, changeCurrentCeleb] = useState({ name: "", image: "", context: "" });
   const [currentTimerDuration, changeCurrentTimerDuration] = useState(1500);
   const [userContextText, changeUserContextText] = useState("");
-  const [selectedMood, setSelectedMood] = useState(null);
+  const [selectedMood, setSelectedMood] = useState<Mood>();
 
 
   return (

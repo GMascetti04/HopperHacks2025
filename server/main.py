@@ -38,8 +38,15 @@ def generate_motivation():
     celeb_name = request_data['celeb_name']
     celeb_context = request_data['celeb_contex']
     user_context = request_data['user_context']
-    celeb_mood = request_data['celeb_mood']['description']
-    celeb_mood_description = request_data['celeb_mood']['message']
+    
+        
+    celeb_mood_obj = request_data.get('celeb_mood', {
+        "description" : "Neutral",
+        "message" : "Be neutral"   
+    })
+    
+    celeb_mood = celeb_mood_obj['description']
+    celeb_mood_description = celeb_mood_obj['message']
     
     
     

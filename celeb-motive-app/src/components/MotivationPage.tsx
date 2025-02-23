@@ -1,7 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import CountdownTimer from "./CountdownTimer";
+import { Mood } from "../types";
 
-const MotivationPage = ({ celebrityName, celebContext, celebrityImagePath, timerDuration, userContextText, celebMood }) => {
+const MotivationPage = ({ celebrityName, celebContext, celebrityImagePath, timerDuration, userContextText, celebMood } : 
+  { celebrityName : string, celebContext : string, celebrityImagePath : string, timerDuration : number, userContextText : string, celebMood : Mood | undefined }
+) => {
   const [quote, setQuote] = useState("");
 
   // useRef to check if the fetch function has been called
@@ -150,8 +153,8 @@ const MotivationPage = ({ celebrityName, celebContext, celebrityImagePath, timer
             boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
             letterSpacing: "1px",
           }}
-          onMouseOver={(e) => (e.target.style.transform = "scale(1.05)")}
-          onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
+          onMouseOver={(e) => ((e.target as HTMLButtonElement).style.transform = "scale(1.05)")}
+          onMouseOut={(e) => ((e.target as HTMLButtonElement).style.transform = "scale(1)")}
         >
           Generate new quote
         </button>

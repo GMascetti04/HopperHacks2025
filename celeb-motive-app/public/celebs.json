@@ -2,77 +2,77 @@
     "celebs" : [
         {
             "name" : "Pedro Pascal",
-            "image" : "public/assets/pedro_pascal.jpg",
+            "image" : "assets/pedro_pascal.jpg",
             "context" : "A Chilean-American actor known for his standout roles in Game of Thrones, The Mandalorian, and The Last of Us. He’s loved for his charismatic presence and versatile performances."
         }, 
         {
             "name" : "Andrew Garfield",
-            "image" : "public/assets/andrew_garfield.jpg",
+            "image" : "assets/andrew_garfield.jpg",
             "context" : "A British-American actor celebrated for his performances in The Social Network, Hacksaw Ridge, and Spider-Man. He’s known for his depth and emotional range."
         },
         {
             "name" : "Charles Leclerc",
-            "image" : "public/assets/charles_leclerc.png",
+            "image" : "assets/charles_leclerc.png",
             "context" : "A Monégasque Formula 1 driver, currently racing for Scuderia Ferrari. He’s known for his talent, speed, and determination on the track."
         },
         {
             "name" : "Miles Teller",
-            "image" : "public/assets/miles_teller.jpg",
+            "image" : "assets/miles_teller.jpg",
             "context" : "An American actor famous for his roles in Whiplash, Top Gun: Maverick, and The Spectacular Now. He's recognized for his intensity and range in both drama and comedy."
         },
         {
             "name" : "Timothee Chalamet",
-            "image" : "public/assets/timothee_chalamet.jpg",
+            "image" : "assets/timothee_chalamet.jpg",
             "context" : "A young American actor known for his roles in Call Me by Your Name, Dune, and Little Women. He's admired for his charm, talent, and unique style."
         },
         {
             "name" : "Zendaya",
-            "image" : "public/assets/zendaya.jpg",
+            "image" : "assets/zendaya.jpg",
             "context" : "An American actress and singer, famous for her role in Euphoria and Spider-Man. Zendaya is known for her advocacy, style, and powerful performances."
         },
         {
             "name" : "Jacob Elordi",
-            "image" : "public/assets/jacob_elordi.jpg",
+            "image" : "assets/jacob_elordi.jpg",
             "context" : "An Australian actor best known for his role in The Kissing Booth and Euphoria. He’s admired for his striking looks and talent in portraying complex characters."
         },
         {
             "name" : "Florence Pugh",
-            "image" : "public/assets/florence_pugh.jpg",
+            "image" : "assets/florence_pugh.jpg",
             "context" : "A British actress known for her roles in Midsommar, Little Women, and Black Widow. Florence is recognized for her fierce talent and captivating screen presence."
         },
         {
             "name" : "Sydney Sweeney",
-            "image" : "public/assets/sydney_sweeney.jpg",
+            "image" : "assets/sydney_sweeney.jpg",
             "context" : "An American actress who gained recognition for her roles in Euphoria and The White Lotus. Sydney is known for her versatility and breakout performances."
         },
         {
             "name" : "Harry Styles",
-            "image" : "public/assets/harry_styles.jpg",
+            "image" : "assets/harry_styles.jpg",
             "context" : "An English singer, songwriter, and actor who first rose to fame with One Direction. Known for his distinctive fashion, musical versatility, and acting roles, including Dunkirk."
         },
         {
             "name" : "Sabrina Carpenter",
-            "image" : "public/assets/sabrina_carpenter.jpg",
+            "image" : "assets/sabrina_carpenter.jpg",
             "context" : "An American singer and actress known for her role in Girl Meets World and her music career. Sabrina is loved for her energy, acting, and pop hits."
         },
         {
             "name" : "Ariana Grande",
-            "image" : "public/assets/ariana_grande.jpg",
+            "image" : "assets/ariana_grande.jpg",
             "context" : "An American singer, songwriter, and actress famous for her powerful vocals and hits like Thank U, Next and Positions. Ariana is known for her incredible range and stage presence."
         },
         {
             "name" : "Josh Hutcherson",
-            "image" : "public/assets/josh_hutcherson.jpg",
+            "image" : "assets/josh_hutcherson.jpg",
             "context" : "An American actor best known for his role as Peeta Mellark in The Hunger Games series. He’s praised for his authenticity and natural acting style."
         },
         {
             "name" : "Paul Mescal",
-            "image" : "public/assets/paul_mescal.jpg",
+            "image" : "assets/paul_mescal.jpg",
             "context" : "An Irish actor who gained widespread recognition for his role in Normal People. Paul is lauded for his nuanced performances and raw emotional depth."
         },
         {
             "name" : "Scarlett Johansson",
-            "image" : "public/assets/scarlett_johansson.jpg",
+            "image" : "assets/scarlett_johansson.jpg",
             "context" : "An American actress famous for her roles in The Avengers franchise, Lost in Translation, and Marriage Story. Scarlett is known for her versatile acting, charm, and powerful screen presence."
         }
     ]

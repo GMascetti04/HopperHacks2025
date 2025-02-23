@@ -1,11 +1,8 @@
 import { useState, useEffect } from "react";
+import { Celebrity } from "../types";
 
-interface Celebrity {
-  name: string;
-  image: string;
-}
 
-const CelebButtonGrid = ({onSelectCeleb}) => {
+const CelebButtonGrid = ({onSelectCeleb} : {onSelectCeleb : (x : Celebrity) => void}) => {
   const [celebrities, setCelebrities] = useState<Celebrity[]>([]);
 
   useEffect(() => {

@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
-import { TimePicker } from "@mui/x-date-pickers/TimePicker";
-import { TextField } from "@mui/material"; // Required for styling TimePicker
+import { DesktopTimePicker } from "@mui/x-date-pickers/DesktopTimePicker";
+import {Mood} from "../types";
 
-const UserOptions = ({ celebrityName, celebrityImagePath, onChangeCurrentCeleb, onDone, onChangeDuration, userContextText, onChangeUserContextText, onSelectMood, selectedMood }) => {
+const UserOptions = ({ celebrityName, celebrityImagePath, onChangeCurrentCeleb, onDone, onChangeDuration, userContextText, onChangeUserContextText, onSelectMood, selectedMood } : { celebrityName : string, celebrityImagePath : string, onChangeCurrentCeleb : () => void, onDone : () => void, onChangeDuration : (x : number) => void, userContextText : string, onChangeUserContextText : (x : string) => void, onSelectMood : (x : Mood) => void, selectedMood : Mood | undefined}) => {
   
   const [moods, setMoods] = useState<never[]>([]);
   const [selectedTime, setSelectedTime] = useState(new Date(0, 0, 0, 0, 25, 0)); // Default to 25 minutes
@@ -61,7 +61,7 @@ const UserOptions = ({ celebrityName, celebrityImagePath, onChangeCurrentCeleb, 
         <div style={{ textAlign: "center" }}>
           <h2 style={{ fontSize: "22px", color: "#333", marginBottom: "10px" }}>Set Timer:</h2>
           <LocalizationProvider dateAdapter={AdapterDateFns}>
-            <TimePicker
+            <DesktopTimePicker
               views={["hours", "minutes", "seconds"]}
               label="Select Duration"
               ampm={false}
@@ -72,15 +72,7 @@ const UserOptions = ({ celebrityName, celebrityImagePath, onChangeCurrentCeleb, 
                   onChangeDuration(date.getHours() * 3600 + date.getMinutes() * 60 + date.getSeconds());
                 }
               }}
-              renderInput={(params) => (
-                <TextField
-                  {...params}
-                  sx={{
-                    "& .MuiInputBase-input": { fontFamily: "'Poppins', sans-serif", fontSize: "16px" }, // Font for input text
-                    "& .MuiInputLabel-root": { fontFamily: "'Poppins', sans-serif", fontSize: "16px" }, // Font for label
-                  }}
-                />
-              )}
+              
             />
           </LocalizationProvider>
         </div>
@@ -117,7 +109,7 @@ const UserOptions = ({ celebrityName, celebrityImagePath, onChangeCurrentCeleb, 
         How should {celebrityName} motivate you?
       </h2>
       <div style={{ display: "flex", justifyContent: "center", gap: "15px", flexWrap: "wrap" }}>
-        {moods.map((mood) => (
+        {moods.map((mood : Mood) => (
           <div
             key={mood.id}
             onClick={() => onSelectMood(mood)}

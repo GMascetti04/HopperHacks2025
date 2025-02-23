@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
-const CountdownTimer = ({ initialTime }) => {
+const CountdownTimer = ({ initialTime } : {
+  initialTime : number
+}) => {
   const [timeLeft, setTimeLeft] = useState(initialTime);
   const [isPaused, setIsPaused] = useState(false);
-  const [intervalId, setIntervalId] = useState(null);
+  const [intervalId, setIntervalId] = useState<number>(0);
 
   // Load audio file
   const alarmSound = new Audio('/timer.mp3'); // Ensure bell.mp3 is in public folder
