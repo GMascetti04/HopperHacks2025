@@ -1,5 +1,6 @@
 from ollama import chat
 from ollama import ChatResponse
+from flask_cors import CORS
 
 from flask import Flask, jsonify, request
 import subprocess
@@ -7,6 +8,7 @@ import subprocess
 import os
 
 app = Flask(__name__)
+CORS(app)
 
 
 def get_motivational_quote(query_text):
@@ -22,7 +24,8 @@ def get_motivational_quote(query_text):
             },
         ],
     )
-    return jsonify({"message": response.message.content})
+    #return jsonify({"message": response.message.content})
+    return response.message.content
 
 
 @app.route("/generate-motivation", methods=["POST"])
@@ -39,6 +42,8 @@ def generate_motivation():
     #tts = gTTS(motivational_text, lang="en")
     #mp3_filename = "motivational_speech.mp3"
     #tts.save(mp3_filename)
+
+    print(f"motivational text: {motivational_text}")
 
     return jsonify(
         {"motivational_text": motivational_text, 
