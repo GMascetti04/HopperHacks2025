@@ -8,6 +8,7 @@ const UserOptions = ({ celebrityName, celebrityImagePath, onChangeCurrentCeleb, 
   const [text, changeText] = useState("");
   const [selectedMood, setSelectedMood] = useState(null);
   const [moods, setMoods] = useState<never[]>([]);
+  const [selectedTime, setSelectedTime] = useState(new Date(0, 0, 0, 0, 25, 0)); // Default to 25 minutes
 
   useEffect(() => {
     fetch("/moods.json")
@@ -65,8 +66,12 @@ const UserOptions = ({ celebrityName, celebrityImagePath, onChangeCurrentCeleb, 
               views={["hours", "minutes", "seconds"]}
               label="Select Duration"
               ampm={false}
+              value={selectedTime}
               onChange={(date) => {
-                onChangeDuration(date.getHours() * 3600 + date.getMinutes() * 60 + date.getSeconds());
+                if (date) {
+                  setSelectedTime(date); // Update selected time
+                  onChangeDuration(date.getHours() * 3600 + date.getMinutes() * 60 + date.getSeconds());
+                }
               }}
               renderInput={(params) => (
                 <TextField
@@ -90,7 +95,7 @@ const UserOptions = ({ celebrityName, celebrityImagePath, onChangeCurrentCeleb, 
             onChange={(e) => changeText(e.target.value)}
             rows={4}
             cols={40}
-            placeholder="Type something here..."
+            placeholder="Ex. I have a test to study for..."
             maxLength={500}
             style={{
               padding: "10px",

@@ -25,6 +25,12 @@ const CountdownTimer = ({ initialTime }) => {
     }
   };
 
+  const resetTimer = () => {
+    clearInterval(intervalId);
+    setTimeLeft(initialTime);
+    setIsPaused(false);
+  };
+
   const hours = Math.floor(timeLeft / 3600);
   const minutes = Math.floor((timeLeft % 3600) / 60);
   const seconds = timeLeft % 60;
@@ -32,26 +38,27 @@ const CountdownTimer = ({ initialTime }) => {
   const formattedTime = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
 
   return (
-    <div style={{ textAlign: "center", marginTop: "2vh" }}> {/* Uses vh for consistent spacing */}
-      {/* Large Timer Display with Relative Width */}
+    <div style={{ textAlign: "center", marginTop: "2vh" }}> {/* Reduced margin */}
+      {/* Large Timer Display */}
       <h1
         style={{
-          fontSize: "10vw", // ✅ Scales based on viewport width
+          fontSize: "10vw",
           fontWeight: "bold",
           color: "#0077ff",
           textShadow: "3px 3px 8px rgba(0, 0, 0, 0.2)",
           margin: "0",
-          width: "30vw", // ✅ Ensures fixed width relative to screen
-          maxWidth: "15em", // ✅ Prevents text from overflowing on larger screens
+          width: "30vw",
+          maxWidth: "15em",
           textAlign: "center",
         }}
       >
         {timeLeft > 0 ? formattedTime : "Time's up!"}
       </h1>
 
-      {/* Pause/Unpause Button */}
+      {/* Button Container */}
       {timeLeft > 0 && (
-        <div>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginTop: "1vh" }}>
+          {/* Pause/Unpause Button */}
           <button
             onClick={togglePause}
             style={{
@@ -65,21 +72,41 @@ const CountdownTimer = ({ initialTime }) => {
               cursor: "pointer",
               transition: "all 0.3s ease-in-out",
               boxShadow: "0 4px 10px rgba(0, 0, 0, 0.3)",
-              marginTop: "1vh", // ✅ Uses vh for consistent spacing
+              marginBottom: "0.8rem", // Spacing before Reset button
             }}
           >
             {isPaused ? "Resume" : "Pause"}
           </button>
 
+          {/* Reset Button */}
+          <button
+            onClick={resetTimer}
+            style={{
+              fontSize: "1.2rem",
+              fontWeight: "bold",
+              backgroundColor: "#8aa0ab",
+              color: "white",
+              padding: "0.7rem 1.2rem",
+              borderRadius: "10px",
+              border: "none",
+              cursor: "pointer",
+              transition: "all 0.3s ease-in-out",
+              boxShadow: "0 4px 10px rgba(0, 0, 0, 0.3)",
+            }}
+          >
+             Reset 🔄
+          </button>
+
           {/* Status Indicator */}
           <div
             style={{
-              marginTop: "0.5vh", // ✅ Prevents excessive spacing
+              marginTop: "0.5vh",
               fontSize: "1.2rem",
               fontWeight: "bold",
               color: isPaused ? "red" : "green",
             }}
           >
+            {/* {isPaused ? "Paused" : "Running"} */}
           </div>
         </div>
       )}
