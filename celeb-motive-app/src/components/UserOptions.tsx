@@ -4,9 +4,8 @@ import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { TimePicker } from "@mui/x-date-pickers/TimePicker";
 import { TextField } from "@mui/material"; // Required for styling TimePicker
 
-const UserOptions = ({ celebrityName, celebrityImagePath, onChangeCurrentCeleb, onDone, onChangeDuration }) => {
-  const [text, changeText] = useState("");
-  const [selectedMood, setSelectedMood] = useState(null);
+const UserOptions = ({ celebrityName, celebrityImagePath, onChangeCurrentCeleb, onDone, onChangeDuration, userContextText, onChangeUserContextText, onSelectMood, selectedMood }) => {
+  
   const [moods, setMoods] = useState<never[]>([]);
   const [selectedTime, setSelectedTime] = useState(new Date(0, 0, 0, 0, 25, 0)); // Default to 25 minutes
 
@@ -91,8 +90,8 @@ const UserOptions = ({ celebrityName, celebrityImagePath, onChangeCurrentCeleb, 
           <h2 style={{ fontSize: "22px", color: "#333", marginBottom: "10px" }}>What are you doing?</h2>
           <textarea
             id="textarea"
-            value={text}
-            onChange={(e) => changeText(e.target.value)}
+            value={userContextText}
+            onChange={(e) => onChangeUserContextText(e.target.value)}
             rows={4}
             cols={40}
             placeholder="Ex. I have a test to study for..."
@@ -107,8 +106,8 @@ const UserOptions = ({ celebrityName, celebrityImagePath, onChangeCurrentCeleb, 
               fontFamily: "'Poppins', sans-serif", // Fixes font in text area
             }}
           />
-          <p style={{ fontSize: "14px", marginTop: "5px", color: text.length >= 500 ? "red" : "#333" }}>
-            {500 - text.length} characters remaining
+          <p style={{ fontSize: "14px", marginTop: "5px", color: userContextText.length >= 500 ? "red" : "#333" }}>
+            {500 - userContextText.length} characters remaining
           </p>
         </div>
       </div>
@@ -121,7 +120,7 @@ const UserOptions = ({ celebrityName, celebrityImagePath, onChangeCurrentCeleb, 
         {moods.map((mood) => (
           <div
             key={mood.id}
-            onClick={() => setSelectedMood(mood)}
+            onClick={() => onSelectMood(mood)}
             style={{
               cursor: "pointer",
               padding: "10px",

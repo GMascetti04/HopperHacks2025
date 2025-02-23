@@ -7,8 +7,11 @@ import MotivationPage from "./components/MotivationPage";
 
 const App: React.FC = () => {
   const [currentPage, changeCurrentPage] = useState<number>(1);
-  const [currentCeleb, changeCurrentCeleb] = useState({ name: "", image: "" });
+  const [currentCeleb, changeCurrentCeleb] = useState({ name: "", image: "", context: "" });
   const [currentTimerDuration, changeCurrentTimerDuration] = useState(1500);
+  const [userContextText, changeUserContextText] = useState("");
+  const [selectedMood, setSelectedMood] = useState(null);
+
 
   return (
     <div
@@ -45,6 +48,10 @@ const App: React.FC = () => {
           onChangeCurrentCeleb={() => changeCurrentPage(1)}
           onDone={() => changeCurrentPage(3)}
           onChangeDuration={(x) => {changeCurrentTimerDuration(x);}}
+          userContextText={userContextText}
+          onChangeUserContextText={changeUserContextText}
+          onSelectMood={setSelectedMood}
+          selectedMood={selectedMood}
         />
       )}
 
@@ -54,6 +61,9 @@ const App: React.FC = () => {
           celebrityName={currentCeleb.name}
           celebrityImagePath={currentCeleb.image}
           timerDuration={currentTimerDuration}
+          celebContext={currentCeleb.context}
+          userContextText={userContextText}
+          celebMood={selectedMood}
         />
       )}
 

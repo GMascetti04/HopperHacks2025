@@ -1,8 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import CountdownTimer from "./CountdownTimer";
 
-const MotivationPage = ({ celebrityName, celebrityImagePath, timerDuration }) => {
-  const [quote, setQuote] = useState(`"Stay focused! ${celebrityName} believes in you. Keep pushing forward!"`);
+const MotivationPage = ({ celebrityName, celebContext, celebrityImagePath, timerDuration, userContextText, celebMood }) => {
+  const [quote, setQuote] = useState("");
+
+  // useRef to check if the fetch function has been called
+  const hasFetched = useRef(false);
+
+  // Call fetchNewQuote when the component mounts
+  useEffect(() => {
+    if (!hasFetched.current) {
+      fetchNewQuote();
+      hasFetched.current = true;
+    }
+  }, []);
 
   const fetchNewQuote = async () => {
     const url = "http://127.0.0.1:5000/generate-motivation";
@@ -12,7 +23,13 @@ const MotivationPage = ({ celebrityName, celebrityImagePath, timerDuration }) =>
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ query_text: "Give me a new motivational quote" }),
+        body: JSON.stringify({ 
+            celeb_name : celebrityName,
+            celeb_contex : celebContext,
+            user_context : userContextText,
+            celeb_mood : celebMood,
+            
+            query_text: "Give me a new motivational quote" }),
       });
 
       if (!response.ok) {

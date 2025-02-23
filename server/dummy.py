@@ -25,6 +25,8 @@ def generate_motivation():
     
         request_data = request.get_json()
         
+        print(request_data)
+        
         query_text = request_data['query_text']
         
         print(query_text)
