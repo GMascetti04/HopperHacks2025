@@ -1,7 +1,40 @@
-import React from "react";
+import React, {useState} from "react";
 import CountdownTimer from "./CountdownTimer";
 
 const MotivationPage = ({ celebrityName, celebrityImagePath, timerDuration }) => {
+
+    const [quote, setQuote] = useState("TEST");
+
+    
+
+    const fetchNewQuote = async () => {
+        const url = ' http://127.0.0.1:5000/generate-motivation';
+        try {
+          const response = await fetch(url, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              query_text: "Give me a new motivational quote",
+            }),
+          });
+
+          console.log("done");
+    
+          if (!response.ok) {
+            throw new Error(`Failed to fetch new quote ${response.status}`);
+          }
+    
+          const data : {motivational_text : string} = await response.json();
+          setQuote(data.motivational_text); // Update the quote with the response
+        } catch (error) {
+          console.error("Error fetching new quote:", error);
+          setQuote("Oops! Something went wrong. Please try again.");
+        }
+      };
+
+
   return (
     <div
       style={{
@@ -64,8 +97,10 @@ const MotivationPage = ({ celebrityName, celebrityImagePath, timerDuration }) =>
             textShadow: "2px 2px 5px rgba(0, 0, 0, 0.5)",
           }}
         >
-          "Stay focused! {celebrityName} believes in you. Keep pushing forward!"
+          {quote}
         </p>
+
+        <button onClick={fetchNewQuote}>Change Quote</button>
       </div>
 
       {/* Right Column: Enlarged Countdown Timer */}
