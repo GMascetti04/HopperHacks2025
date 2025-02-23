@@ -40,6 +40,10 @@ const CountdownTimer = ({ initialTime }) => {
     clearInterval(intervalId);
     setTimeLeft(initialTime);
     setIsPaused(false);
+
+    // Stop the alarm sound when the timer is reset
+    alarmSound.pause();
+    alarmSound.currentTime = 0; // Reset the sound to the beginning
   };
 
   const hours = Math.floor(timeLeft / 3600);
@@ -88,7 +92,6 @@ const CountdownTimer = ({ initialTime }) => {
               cursor: "pointer",
               transition: "all 0.3s ease-in-out",
               boxShadow: "0 4px 10px rgba(0, 0, 0, 0.3)",
-              marginBottom: "0.8rem",
               marginBottom: "0.8rem",
             }}
           >
