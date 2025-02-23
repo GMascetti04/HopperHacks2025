@@ -8,7 +8,7 @@ import MotivationPage from "./components/MotivationPage";
 const App: React.FC = () => {
   const [currentPage, changeCurrentPage] = useState<number>(1);
   const [currentCeleb, changeCurrentCeleb] = useState({ name: "", image: "" });
-  const [currentTimerDuration, changeCurrentTimerDuration] = useState();
+  const [currentTimerDuration, changeCurrentTimerDuration] = useState(1500);
 
   return (
     <div

@@ -58,7 +58,7 @@ const MotivationPage = ({ celebrityName, celebrityImagePath, timerDuration }) =>
         <p
           style={{
             fontSize: "22px",
-            fontWeight: "600",
+            fontWeight: "500",
             maxWidth: "600px",
             color: "white",
             textShadow: "2px 2px 5px rgba(0, 0, 0, 0.5)",
@@ -111,7 +111,7 @@ const MotivationPage = ({ celebrityName, celebrityImagePath, timerDuration }) =>
         }}
         onClick={() => window.location.reload()} // Resets the page
       >
-        🔄 Choose Another Celebrity
+        Choose Another Celebrity!
       </button>
     </div>
   );
